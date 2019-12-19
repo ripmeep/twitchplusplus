@@ -46,7 +46,7 @@ ______________________________________
 
 ```bash
 Usage   $ ./chat [STREAMER NAME]
-Example $ ./char timthetatman
+Example $ ./chat timthetatman
 
 [+] Connected to Twitch IRC successfully
 [+] Login successful!
