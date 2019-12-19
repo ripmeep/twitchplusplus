@@ -21,7 +21,7 @@ int main(int argc, char ** argv) {
       if (success(twitch_user->send_login(USERNAME, OAUTH_PASS))) {
             std::cout << "[+] Login successful!" << std::endl;
       } else {
-            std::cout << "[!] Login failed.... Wrong OAuth" << std::endl;
+            std::cout << "[!] Login failed.... Something went wrong! Check connetion and login details" << std::endl;
             return -1;      
       }
             
