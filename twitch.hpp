@@ -70,19 +70,17 @@ class TwitchUser {
 
                   if (send_status <= 0) return -1;
 
-                  packet_t response[MAX_PACKET_SIZE];
-                  if (recv(this->client_stream, response, MAX_PACKET_SIZE, 0) < 0) return -1;
-
-                  std::cout << (char*)response << std::endl;
-
-                  std::string res((char*)response);
-                  if (res.find("fail") != std::string::npos) return -1;
-
                   memset(packet, '\0', login_size);
                   packet[login_size] = '\0';
 
                   snprintf(packet, login_size, "NICK %s\r\n", nickname);
                   send_status = send(this->client_stream, packet, strlen(packet), 0);
+
+                  packet_t response[MAX_PACKET_SIZE];
+                  if (recv(this->client_stream, response, MAX_PACKET_SIZE, 0) < 0) return -1;
+
+                  std::string res((char*)response);
+                  if (res.find("fail") != std::string::npos) return -1;
 
                   delete [] packet;
 
